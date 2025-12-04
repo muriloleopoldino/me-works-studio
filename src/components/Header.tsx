@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShieldCheck } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -12,6 +13,7 @@ const navLinks = [
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
@@ -40,13 +42,24 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <a
-            href="#contato"
-            className="hidden md:inline-flex btn-primary text-sm px-6 py-3"
-          >
-            Solicitar Orçamento
-          </a>
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            {user && (
+              <a
+                href="/admin"
+                className="inline-flex items-center gap-2 px-4 py-3 text-sm font-semibold rounded-lg bg-secondary text-foreground border border-border hover:border-primary/50 transition-all duration-300"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                Admin
+              </a>
+            )}
+            <a
+              href="#contato"
+              className="inline-flex btn-primary text-sm px-6 py-3"
+            >
+              Solicitar Orçamento
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -78,6 +91,16 @@ export const Header = () => {
                   {link.label}
                 </a>
               ))}
+              {user && (
+                <a
+                  href="/admin"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold rounded-lg bg-secondary text-foreground border border-border hover:border-primary/50 transition-all"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  Painel Admin
+                </a>
+              )}
               <a
                 href="#contato"
                 onClick={() => setIsMenuOpen(false)}

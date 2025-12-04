@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, Phone, MessageCircle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 
 export const ContactSection = () => {
   const ref = useRef(null);
@@ -19,17 +20,38 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Mensagem enviada!",
-      description: "Eduardo entrará em contato em breve.",
-    });
-    
-    setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
-    setIsSubmitting(false);
+
+    try {
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || null,
+            project_type: formData.projectType,
+            message: formData.message,
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Eduardo entrará em contato em breve.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Por favor, tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
