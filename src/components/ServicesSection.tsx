@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+<<<<<<< HEAD
 import {
   Globe,
   Palette,
@@ -10,11 +11,21 @@ import {
   ArrowUpRight,
   BarChart,
   Bot
+=======
+import { 
+  Globe, 
+  Palette, 
+  Smartphone, 
+  Users, 
+  Rocket,
+  ArrowUpRight
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
 } from "lucide-react";
 
 const services = [
   {
     icon: Globe,
+<<<<<<< HEAD
     title: "Desenvolvimento Web & Tech",
     description: "Sites institucionais, plataformas e sistemas sob medida com tecnologia de ponta.",
   },
@@ -42,6 +53,30 @@ const services = [
     icon: Bot,
     title: "Automação & Growth",
     description: "Ferramentas e automações para escalar sua operação de forma eficiente.",
+=======
+    title: "Criação de Sites Profissionais",
+    description: "Desenvolvemos páginas institucionais, portfólios e sites completos com design moderno e código otimizado.",
+  },
+  {
+    icon: Palette,
+    title: "Design Moderno",
+    description: "Estética limpa, moderna e tecnológica. Cada projeto é pensado para transmitir profissionalismo e confiança.",
+  },
+  {
+    icon: Smartphone,
+    title: "Desenvolvimento Responsivo",
+    description: "Seu site funciona perfeitamente em qualquer dispositivo: desktop, tablet ou celular.",
+  },
+  {
+    icon: Users,
+    title: "Consultoria e Estratégia",
+    description: "Eduardo oferece atendimento personalizado e orientação estratégica para maximizar seus resultados.",
+  },
+  {
+    icon: Rocket,
+    title: "Landing Pages para Vendas",
+    description: "Páginas otimizadas para conversão, com foco em captação de leads e vendas efetivas.",
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
   },
 ];
 
@@ -66,10 +101,18 @@ export const ServicesSection = () => {
             Nossos Serviços
           </span>
           <h2 className="section-title mb-6">
+<<<<<<< HEAD
             O que a EMT Tech <span className="text-gradient">oferece</span>
           </h2>
           <p className="section-subtitle mx-auto">
             Soluções completas integrando Tecnologia, Marketing e Vendas.
+=======
+            O que a ME Works <span className="text-gradient">oferece</span>
+          </h2>
+          <p className="section-subtitle mx-auto">
+            Soluções completas em desenvolvimento web, 
+            do design à estratégia de conversão.
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
           </p>
         </motion.div>
 
@@ -86,7 +129,11 @@ export const ServicesSection = () => {
               <div className="h-full glass-card rounded-2xl p-8 hover:border-primary/50 transition-all duration-500 relative overflow-hidden">
                 {/* Hover Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">

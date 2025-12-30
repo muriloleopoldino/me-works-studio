@@ -7,7 +7,11 @@ const testimonials = [
   {
     name: "Ricardo Silva",
     role: "CEO, TechStart",
+<<<<<<< HEAD
     content: "A EMT Tech superou todas as expectativas. O site ficou incrível e o atendimento do Eduardo foi impecável do início ao fim.",
+=======
+    content: "A ME Works superou todas as expectativas. O site ficou incrível e o atendimento do Eduardo foi impecável do início ao fim.",
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
   },
   {
@@ -19,13 +23,21 @@ const testimonials = [
   {
     name: "Felipe Santos",
     role: "Diretor, Imobiliária FS",
+<<<<<<< HEAD
     content: "Nosso novo site aumentou significativamente os contatos qualificados. O time da EMT Tech realmente entende de conversão.",
+=======
+    content: "Nosso novo site aumentou significativamente os contatos qualificados. A dupla ME Works realmente entende de conversão.",
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
   },
   {
     name: "Ana Paula Costa",
     role: "Proprietária, Boutique AC",
+<<<<<<< HEAD
     content: "Design moderno, entrega rápida e suporte excelente. Recomendo a EMT Tech para qualquer negócio que precisa de presença online.",
+=======
+    content: "Design moderno, entrega rápida e suporte excelente. Recomendo a ME Works para qualquer negócio que precisa de presença online.",
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
   },
 ];
@@ -54,7 +66,11 @@ export const TestimonialsSection = () => {
             O que nossos <span className="text-gradient">clientes</span> dizem
           </h2>
           <p className="section-subtitle mx-auto">
+<<<<<<< HEAD
             Feedback real de quem já trabalhou conosco e
+=======
+            Feedback real de quem já trabalhou conosco e 
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
             transformou sua presença digital.
           </p>
         </motion.div>

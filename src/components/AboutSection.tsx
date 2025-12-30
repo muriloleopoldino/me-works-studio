@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+<<<<<<< HEAD
 import { Code2, MessageCircle, Zap, Shield, Clock, Target, TrendingUp } from "lucide-react";
+=======
+import { Code2, MessageCircle, Zap, Shield, Clock, Target } from "lucide-react";
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
 
 const teamMembers = [
   {
@@ -16,12 +20,15 @@ const teamMembers = [
     description: "Cuida das vendas, atendimento ao cliente e estratégia. Comunicação clara e foco total no seu sucesso.",
     icon: MessageCircle,
   },
+<<<<<<< HEAD
   {
     name: "Telles",
     role: "Marketing e Vendas",
     description: "Estratégia de crescimento, aquisição de clientes e posicionamento da agência.",
     icon: TrendingUp,
   },
+=======
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
 ];
 
 const highlights = [
@@ -37,7 +44,11 @@ export const AboutSection = () => {
 
   return (
     <section id="sobre" className="py-32 relative overflow-hidden" ref={ref}>
+<<<<<<< HEAD
 
+=======
+      {/* Background Accent */}
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -52,15 +63,27 @@ export const AboutSection = () => {
             Quem Somos
           </span>
           <h2 className="section-title mb-6">
+<<<<<<< HEAD
             Um <span className="text-gradient">time completo</span> para seu projeto
           </h2>
           <p className="section-subtitle mx-auto">
             Combinamos desenvolvimento técnico de alta qualidade com estratégias de marketing e vendas para impulsionar seu negócio.
+=======
+            Uma <span className="text-gradient">dupla completa</span> para seu projeto
+          </h2>
+          <p className="section-subtitle mx-auto">
+            Combinamos desenvolvimento técnico de alta qualidade com atendimento 
+            humanizado e estratégia comercial eficiente.
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
           </p>
         </motion.div>
 
         {/* Team Cards */}
+<<<<<<< HEAD
         <div className="grid md:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
+=======
+        <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-4xl mx-auto">
+>>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
