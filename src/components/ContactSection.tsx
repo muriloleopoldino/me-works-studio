@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, Phone, MessageCircle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 
 
 export const ContactSection = () => {
@@ -21,16 +22,35 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const { error } = await supabase.from('leads').insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        project_type: formData.projectType,
+        message: formData.message,
+      });
 
-    toast({
-      title: "Mensagem enviada!",
-      description: "Eduardo entrará em contato em breve.",
-    });
+      if (error) {
+        throw error;
+      }
 
-    setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
-    setIsSubmitting(false);
+      toast({
+        title: "Mensagem enviada!",
+        description: "Eduardo entrará em contato em breve. Obrigado pelo interesse!",
+      });
+
+      setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

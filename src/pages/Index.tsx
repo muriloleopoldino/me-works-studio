@@ -7,6 +7,7 @@ import { DifferentialsSection } from "@/components/DifferentialsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { AdminFloatingButton } from "@/components/AdminFloatingButton";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
+      <AdminFloatingButton />
     </main>
   );
 };
