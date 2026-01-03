@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-<<<<<<< HEAD
 import { Menu, X } from "lucide-react";
-=======
-import { Menu, X, ShieldCheck } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -17,10 +12,7 @@ const navLinks = [
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-<<<<<<< HEAD
-=======
-  const { user } = useAuth();
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
@@ -28,7 +20,6 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2">
-<<<<<<< HEAD
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center overflow-hidden">
               <img
                 src="/emt-logo.png"
@@ -38,13 +29,6 @@ export const Header = () => {
             </div>
             <span className="font-display font-bold text-xl text-foreground">
               EMT <span className="text-primary">Tech</span>
-=======
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="font-display font-bold text-primary-foreground text-lg">M</span>
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">
-              ME <span className="text-primary">Works</span>
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
             </span>
           </a>
 
@@ -61,38 +45,12 @@ export const Header = () => {
             ))}
           </nav>
 
-<<<<<<< HEAD
-
           <a
             href="#contato"
             className="hidden md:inline-flex btn-primary text-sm px-6 py-3"
           >
             Solicitar Orçamento
           </a>
-
-
-=======
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            {user && (
-              <a
-                href="/admin"
-                className="inline-flex items-center gap-2 px-4 py-3 text-sm font-semibold rounded-lg bg-secondary text-foreground border border-border hover:border-primary/50 transition-all duration-300"
-              >
-                <ShieldCheck className="w-4 h-4" />
-                Admin
-              </a>
-            )}
-            <a
-              href="#contato"
-              className="inline-flex btn-primary text-sm px-6 py-3"
-            >
-              Solicitar Orçamento
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-foreground"
@@ -102,11 +60,7 @@ export const Header = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
 
-=======
-      {/* Mobile Menu */}
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -126,19 +80,7 @@ export const Header = () => {
                   {link.label}
                 </a>
               ))}
-<<<<<<< HEAD
-=======
-              {user && (
-                <a
-                  href="/admin"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold rounded-lg bg-secondary text-foreground border border-border hover:border-primary/50 transition-all"
-                >
-                  <ShieldCheck className="w-4 h-4" />
-                  Painel Admin
-                </a>
-              )}
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
+
               <a
                 href="#contato"
                 onClick={() => setIsMenuOpen(false)}

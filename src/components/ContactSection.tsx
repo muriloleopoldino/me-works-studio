@@ -3,10 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, Phone, MessageCircle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-<<<<<<< HEAD
-=======
-import { supabase } from "@/lib/supabase";
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
+
 
 export const ContactSection = () => {
   const ref = useRef(null);
@@ -24,7 +21,6 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-<<<<<<< HEAD
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
 
@@ -35,39 +31,6 @@ export const ContactSection = () => {
 
     setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
     setIsSubmitting(false);
-=======
-    try {
-      const { error } = await supabase
-        .from('form_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone || null,
-            project_type: formData.projectType,
-            message: formData.message,
-          }
-        ]);
-
-      if (error) throw error;
-
-      toast({
-        title: "Mensagem enviada com sucesso!",
-        description: "Eduardo entrará em contato em breve.",
-      });
-
-      setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
-    } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      toast({
-        title: "Erro ao enviar mensagem",
-        description: "Por favor, tente novamente mais tarde.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -95,11 +58,7 @@ export const ContactSection = () => {
             Vamos criar seu <span className="text-gradient">projeto</span>?
           </h2>
           <p className="section-subtitle mx-auto">
-<<<<<<< HEAD
             Preencha o formulário e Eduardo entrará em contato rapidamente
-=======
-            Preencha o formulário e Eduardo entrará em contato rapidamente 
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
             para entender suas necessidades.
           </p>
         </motion.div>
@@ -114,17 +73,10 @@ export const ContactSection = () => {
           >
             <div>
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-<<<<<<< HEAD
                 Fale com a EMT Tech.
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 Respondemos rápido. Eduardo cuida do atendimento pessoalmente
-=======
-                Fale com a ME Works
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Respondemos rápido. Eduardo cuida do atendimento pessoalmente 
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
                 e vai te orientar sobre a melhor solução para seu projeto.
               </p>
             </div>
@@ -136,11 +88,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">E-mail</p>
-<<<<<<< HEAD
                   <p className="text-foreground font-medium">contato@emttech.com.br</p>
-=======
-                  <p className="text-foreground font-medium">contato@meworks.com.br</p>
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
                 </div>
               </div>
 
@@ -150,11 +98,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Telefone</p>
-<<<<<<< HEAD
                   <p className="text-foreground font-medium">(19) 98917-2489</p>
-=======
-                  <p className="text-foreground font-medium">(11) 99999-9999</p>
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
                 </div>
               </div>
 
@@ -178,7 +122,6 @@ export const ContactSection = () => {
                 </div>
               ))}
             </div>
-<<<<<<< HEAD
 
             {/* WhatsApp Button */}
             <a
@@ -190,8 +133,6 @@ export const ContactSection = () => {
               Nos chame no nosso Whatsapp!
               <MessageCircle className="ml-2 w-4 h-4" />
             </a>
-=======
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
           </motion.div>
 
           {/* Contact Form */}

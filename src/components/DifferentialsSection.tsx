@@ -6,13 +6,8 @@ import { Users, Zap, Eye, BarChart3, HeartHandshake, CheckCircle2 } from "lucide
 const differentials = [
   {
     icon: Users,
-<<<<<<< HEAD
     title: "Time Completo",
     description: "Técnico, Marketing e Vendas trabalhando juntos para o melhor resultado.",
-=======
-    title: "Dupla Completa",
-    description: "Técnico + comercial trabalhando juntos para o melhor resultado.",
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
   },
   {
     icon: Zap,
@@ -65,11 +60,7 @@ export const DifferentialsSection = () => {
             Nossos <span className="text-gradient">diferenciais</span>
           </h2>
           <p className="section-subtitle mx-auto">
-<<<<<<< HEAD
             Descubra por que clientes confiam na EMT Tech para
-=======
-            Descubra por que clientes confiam na ME Works para 
->>>>>>> 883d48aac344b485276d4d873be5e60db936ddf8
             transformar suas ideias em sites profissionais.
           </p>
         </motion.div>
