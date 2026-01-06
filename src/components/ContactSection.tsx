@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, Phone, MessageCircle, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
+import { supabase, isConfigured } from "@/lib/supabase";
 
 
 export const ContactSection = () => {
@@ -21,6 +21,19 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    if (!isConfigured) {
+      // Simulate delay for better UX
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      toast({
+        title: "Sistema em Manutenção",
+        description: "O formulário não pôde ser enviado pois o sistema não está conectado ao banco de dados. Por favor, entre em contato pelo WhatsApp.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const { error } = await supabase.from('leads').insert({

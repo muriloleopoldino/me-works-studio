@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { supabase, Lead } from '@/lib/supabase';
+import { supabase, Lead, isConfigured } from '@/lib/supabase';
 import {
   LogOut,
   Users,
@@ -15,7 +15,8 @@ import {
   CheckCircle,
   Clock,
   Target,
-  XCircle
+  XCircle,
+  AlertTriangle
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
@@ -39,6 +40,10 @@ export default function Dashboard() {
   }, []);
 
   const fetchLeads = async () => {
+    if (!isConfigured) {
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     const { data, error } = await supabase
       .from('leads')
@@ -140,6 +145,24 @@ export default function Dashboard() {
       </header>
 
       <main className="container mx-auto px-6 py-8">
+        {!isConfigured && (
+          <div className="mb-8 p-6 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-start gap-4">
+            <div className="p-3 rounded-lg bg-yellow-500/10">
+              <AlertTriangle className="w-6 h-6 text-yellow-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-yellow-500 mb-1">Configuração Necessária</h3>
+              <p className="text-muted-foreground mb-4">
+                O sistema não conseguiu se conectar ao banco de dados. Isso geralmente acontece quando as credenciais do Supabase não foram configuradas.
+              </p>
+              <div className="p-4 rounded-lg bg-background/50 border border-border text-sm font-mono text-muted-foreground">
+                VITE_SUPABASE_URL=sua_url_aqui<br />
+                VITE_SUPABASE_ANON_KEY=sua_chave_aqui
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="glass-card rounded-xl p-6">
             <div className="flex items-center justify-between">
@@ -359,11 +382,10 @@ export default function Dashboard() {
                     <button
                       key={status}
                       onClick={() => updateLeadStatus(selectedLead.id, status as Lead['status'])}
-                      className={`p-3 rounded-lg border-2 transition-all ${
-                        selectedLead.status === status
+                      className={`p-3 rounded-lg border-2 transition-all ${selectedLead.status === status
                           ? 'border-primary bg-primary/10'
                           : 'border-border hover:border-primary/50'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-2">
                         <StatusIcon className="w-4 h-4" />
