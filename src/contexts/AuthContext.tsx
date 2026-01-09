@@ -19,15 +19,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Check for mock session first
-    const mockSessionStr = localStorage.getItem('mock_session');
-    if (mockSessionStr) {
-      const mockSession = JSON.parse(mockSessionStr);
-      setSession(mockSession);
-      setUser(mockSession.user);
-      setLoading(false);
-      return;
-    }
-
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
@@ -45,33 +36,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     // Hardcoded bypass for specific admin credentials
-    if (email === 'agenciaemt@gmail.com' && password === 'emtagencia25@') {
-      const mockUser: User = {
-        id: 'mock-admin-id',
-        app_metadata: { provider: 'email' },
-        user_metadata: { name: 'Admin' },
-        aud: 'authenticated',
-        created_at: new Date().toISOString(),
-        email: email,
-        phone: '',
-        role: 'authenticated',
-        updated_at: new Date().toISOString(),
-      };
-
-      const mockSession: Session = {
-        access_token: 'mock-access-token',
-        refresh_token: 'mock-refresh-token',
-        expires_in: 3600,
-        token_type: 'bearer',
-        user: mockUser,
-      };
-
-      localStorage.setItem('mock_session', JSON.stringify(mockSession));
-      setSession(mockSession);
-      setUser(mockUser);
-      return { error: null };
-    }
-
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -80,7 +44,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
-    localStorage.removeItem('mock_session');
     setSession(null);
     setUser(null);
     await supabase.auth.signOut();

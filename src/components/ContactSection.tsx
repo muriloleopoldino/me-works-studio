@@ -42,6 +42,7 @@ export const ContactSection = () => {
         phone: formData.phone,
         project_type: formData.projectType,
         message: formData.message,
+        status: 'new',
       });
 
       if (error) {

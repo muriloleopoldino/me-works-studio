@@ -36,11 +36,13 @@ export default function Dashboard() {
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
   useEffect(() => {
-    fetchLeads();
-  }, []);
+    if (user) {
+      fetchLeads();
+    }
+  }, [user]);
 
   const fetchLeads = async () => {
-    if (!isConfigured) {
+    if (!isConfigured || !user) {
       setLoading(false);
       return;
     }
@@ -51,6 +53,7 @@ export default function Dashboard() {
       .order('created_at', { ascending: false });
 
     if (error) {
+      console.error('Error fetching leads:', error);
       toast({
         title: "Erro ao carregar leads",
         description: error.message,
@@ -254,7 +257,8 @@ export default function Dashboard() {
           ) : (
             <div className="space-y-3">
               {filteredLeads.map((lead) => {
-                const StatusIcon = statusConfig[lead.status].icon;
+                const config = statusConfig[lead.status] || statusConfig['new'];
+                const StatusIcon = config.icon;
                 return (
                   <div
                     key={lead.id}
@@ -265,9 +269,9 @@ export default function Dashboard() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-2">
                           <h3 className="font-semibold text-foreground text-lg">{lead.name}</h3>
-                          <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${statusConfig[lead.status].color}`}>
+                          <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${config.color}`}>
                             <StatusIcon className="w-3 h-3" />
-                            {statusConfig[lead.status].label}
+                            {config.label}
                           </span>
                         </div>
 
@@ -383,8 +387,8 @@ export default function Dashboard() {
                       key={status}
                       onClick={() => updateLeadStatus(selectedLead.id, status as Lead['status'])}
                       className={`p-3 rounded-lg border-2 transition-all ${selectedLead.status === status
-                          ? 'border-primary bg-primary/10'
-                          : 'border-border hover:border-primary/50'
+                        ? 'border-primary bg-primary/10'
+                        : 'border-border hover:border-primary/50'
                         }`}
                     >
                       <div className="flex items-center gap-2">
