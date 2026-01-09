@@ -47,22 +47,28 @@ export default function Dashboard() {
       return;
     }
     setLoading(true);
-    const { data, error } = await supabase
-      .from('leads')
-      .select('*')
-      .order('created_at', { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from('leads')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-    if (error) {
+      if (error) {
+        console.error('Supabase SELECT Error:', error);
+        throw error;
+      }
+
+      setLeads(data || []);
+    } catch (error: any) {
       console.error('Error fetching leads:', error);
       toast({
         title: "Erro ao carregar leads",
-        description: error.message,
+        description: error.message || "Erro desconhecido ao buscar leads",
         variant: "destructive",
       });
-    } else {
-      setLeads(data || []);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const updateLeadStatus = async (leadId: string, newStatus: Lead['status']) => {

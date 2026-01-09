@@ -23,9 +23,6 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     if (!isConfigured) {
-      // Simulate delay for better UX
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
       toast({
         title: "Sistema em Manutenção",
         description: "O formulário não pôde ser enviado pois o sistema não está conectado ao banco de dados. Por favor, entre em contato pelo WhatsApp.",
@@ -36,18 +33,22 @@ export const ContactSection = () => {
     }
 
     try {
-      const { error } = await supabase.from('leads').insert({
+      console.log("Submitting lead:", formData);
+      const { data, error } = await supabase.from('leads').insert({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         project_type: formData.projectType,
         message: formData.message,
         status: 'new',
-      });
+      }).select();
 
       if (error) {
+        console.error('Supabase INSERT Error:', error);
         throw error;
       }
+
+      console.log("Lead submitted successfully:", data);
 
       toast({
         title: "Mensagem enviada!",
@@ -55,11 +56,30 @@ export const ContactSection = () => {
       });
 
       setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch (error: any) {
+      console.error('CRITICAL: Error submitting form:', error);
+
+      // Determine if it's a network error or API error
+      let errorMessage = "Erro desconhecido";
+
+      if (error?.message) {
+        errorMessage = error.message;
+      } else if (error?.error_description) {
+        errorMessage = error.error_description;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+
+      // Translate common Supabase errors
+      if (errorMessage.includes("row-level security")) {
+        errorMessage = "Erro de permissão (RLS). Contate o administrador.";
+      } else if (errorMessage.includes("violates not-null constraint")) {
+        errorMessage = "Campos obrigatórios faltando.";
+      }
+
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        description: `Não foi possível salvar seu contato. Detalhes: ${errorMessage}. Por favor, nos chame no WhatsApp.`,
         variant: "destructive",
       });
     } finally {
