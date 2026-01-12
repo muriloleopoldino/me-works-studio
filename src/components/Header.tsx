@@ -28,7 +28,7 @@ export const Header = () => {
               />
             </div>
             <span className="font-display font-bold text-xl text-foreground">
-              EMT <span className="text-primary">Tech</span>
+              AGÊNCIA <span className="text-primary">EMT</span>
             </span>
           </a>
 

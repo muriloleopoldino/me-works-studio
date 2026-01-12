@@ -97,7 +97,7 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(205 100% 50% / 0.15), transparent)",
+        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(0 0% 100% / 0.15), transparent)",
       },
     },
   },

@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Ricardo Silva",
     role: "CEO, TechStart",
-    content: "A EMT Tech superou todas as expectativas. O site ficou incrível e o atendimento do Eduardo foi impecável do início ao fim.",
+    content: "A Agência EMT superou todas as expectativas. O site ficou incrível e o atendimento da equipe foi impecável do início ao fim.",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
   },
   {
@@ -19,13 +19,13 @@ const testimonials = [
   {
     name: "Felipe Santos",
     role: "Diretor, Imobiliária FS",
-    content: "Nosso novo site aumentou significativamente os contatos qualificados. O time da EMT Tech realmente entende de conversão.",
+    content: "Nosso novo site aumentou significativamente os contatos qualificados. O time da EMT realmente entende de conversão.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
   },
   {
     name: "Ana Paula Costa",
     role: "Proprietária, Boutique AC",
-    content: "Design moderno, entrega rápida e suporte excelente. Recomendo a EMT Tech para qualquer negócio que precisa de presença online.",
+    content: "Design moderno, entrega rápida e suporte excelente. Recomendo a EMT para qualquer negócio que precisa de presença online.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
   },
 ];

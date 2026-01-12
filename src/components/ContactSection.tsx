@@ -112,7 +112,7 @@ export const ContactSection = () => {
             Vamos criar seu <span className="text-gradient">projeto</span>?
           </h2>
           <p className="section-subtitle mx-auto">
-            Preencha o formulário e Eduardo entrará em contato rapidamente
+            Preencha o formulário e nossa equipe entrará em contato rapidamente
             para entender suas necessidades.
           </p>
         </motion.div>
@@ -127,10 +127,10 @@ export const ContactSection = () => {
           >
             <div>
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                Fale com a EMT Tech.
+                Fale com a EMT.
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Respondemos rápido. Eduardo cuida do atendimento pessoalmente
+                Respondemos rápido. Nossa equipe cuida do atendimento pessoalmente
                 e vai te orientar sobre a melhor solução para seu projeto.
               </p>
             </div>
@@ -142,7 +142,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">E-mail</p>
-                  <p className="text-foreground font-medium">contato@emttech.com.br</p>
+                  <p className="text-foreground font-medium">agenciaemt@gmail.com</p>
                 </div>
               </div>
 
@@ -153,6 +153,17 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Telefone</p>
                   <p className="text-foreground font-medium">(19) 98917-2489</p>
+                  <p className="text-sm text-muted-foreground">Eduardo Bengochea</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border/50">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Telefone</p>
+                  <p className="text-foreground font-medium">(62) 8144-4285</p>
+                  <p className="text-sm text-muted-foreground">Gabriel Telles</p>
                 </div>
               </div>
 

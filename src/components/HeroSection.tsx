@@ -42,8 +42,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">EMT</span>{" "}
-            <span className="text-gradient">Tech</span>
+            <span className="text-foreground">Agência</span>{" "}
+            <span className="text-gradient">EMT</span>
           </motion.h1>
 
           {/* Subtitle */}

@@ -17,45 +17,32 @@ export const Footer = () => {
               />
             </div>
             <span className="font-display font-bold text-xl text-foreground">
-              EMT <span className="text-primary">Tech</span>
+              AGÊNCIA <span className="text-primary">EMT</span>
             </span>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="mailto:contato@emttech.com.br"
-              className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-              aria-label="E-mail"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
+              href="https://www.instagram.com/emt.agencia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
               aria-label="Instagram"
+              target="_blank"
             >
               <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
             </a>
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © {currentYear} EMT Tech. Todos os direitos reservados.
+            © {currentYear} Agência EMT. Todos os direitos reservados.
           </p>
         </div>
 
         {/* Bottom Line */}
         <div className="mt-8 pt-8 border-t border-border/30 text-center">
           <p className="text-xs text-muted-foreground/60">
-            EMT Tech - Tecnologia, Marketing e Vendas
+            EMT - Tecnologia, Marketing e Vendas
           </p>
         </div>
       </div>

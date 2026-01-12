@@ -180,21 +180,6 @@ export default function Dashboard() {
                 <p className="text-3xl font-bold text-foreground">{stats.total}</p>
               </div>
               <Users className="w-10 h-10 text-primary" />
-            </div>
-          </div>
-
-          <div className="glass-card rounded-xl p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Novos</p>
-                <p className="text-3xl font-bold text-blue-400">{stats.new}</p>
-              </div>
-              <Sparkles className="w-10 h-10 text-blue-400" />
-            </div>
-          </div>
-
-          <div className="glass-card rounded-xl p-6">
-            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Contatados</p>
                 <p className="text-3xl font-bold text-yellow-400">{stats.contacted}</p>

@@ -9,65 +9,6 @@
     --background: 220 20% 4%;
     --foreground: 210 40% 98%;
 
-    --card: 220 20% 8%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 20% 6%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 205 100% 50%;
-    --primary-foreground: 220 20% 4%;
-
-    --secondary: 220 20% 12%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 20% 55%;
-
-    --accent: 205 100% 50%;
-    --accent-foreground: 220 20% 4%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 205 100% 50%;
-
-    --radius: 0.75rem;
-
-    /* Custom EMT Tech colors */
-    --blue-glow: 205 100% 50%;
-    --blue-bright: 200 100% 55%;
-    --blue-soft: 210 80% 60%;
-    --dark-surface: 220 20% 6%;
-    --dark-elevated: 220 20% 10%;
-
-    /* Gradients */
-    --gradient-blue: linear-gradient(135deg, hsl(205 100% 50%), hsl(200 100% 60%));
-    --gradient-dark: linear-gradient(180deg, hsl(220 20% 4%), hsl(220 20% 8%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(205 100% 50% / 0.15), transparent 70%);
-
-    /* Shadows */
-    --shadow-glow: 0 0 60px hsl(205 100% 50% / 0.3);
-    --shadow-glow-sm: 0 0 30px hsl(205 100% 50% / 0.2);
-    --shadow-card: 0 4px 30px hsl(0 0% 0% / 0.3);
-
-    /* Sidebar */
-    --sidebar-background: 220 20% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 205 100% 50%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 20% 12%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 205 100% 50%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
   }
 
   html {
@@ -84,33 +25,6 @@
   h3,
   h4,
   h5,
-  h6 {
-    font-family: 'Space Grotesk', sans-serif;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-bright;
-  }
-
-  .glow-blue {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .glow-blue-sm {
-    box-shadow: var(--shadow-glow-sm);
-  }
-
-  .border-glow {
-    @apply border border-primary/30;
-    box-shadow: 0 0 20px hsl(205 100% 50% / 0.1);
-  }
-
-  .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
-  }
-
   .tech-line {
     @apply h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent;
   }
@@ -121,7 +35,6 @@
     @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-lg;
     @apply bg-primary text-primary-foreground;
     @apply transition-all duration-300 ease-out;
-    @apply hover:scale-105 hover:glow-blue;
     @apply focus:outline-none focus:ring-2 focus:ring-primary/50;
   }
 
