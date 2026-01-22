@@ -147,7 +147,7 @@ const Login = () => {
           {/* Footer Info */}
           <div className="mt-6 pt-6 border-t border-border/50 text-center">
             <p className="text-xs text-muted-foreground">
-              ME Works - Acesso Seguro
+              Agência EMT - Acesso Seguro
             </p>
           </div>
         </div>

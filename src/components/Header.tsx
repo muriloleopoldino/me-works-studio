@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -88,6 +89,14 @@ export const Header = () => {
               >
                 Solicitar Orçamento
               </a>
+
+              <Link
+                to="/admin/login"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg text-muted-foreground hover:text-primary transition-colors text-center mt-2"
+              >
+                Login Admin
+              </Link>
             </nav>
           </motion.div>
         )}

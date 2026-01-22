@@ -119,6 +119,7 @@ export default function Dashboard() {
     new: leads.filter(l => l.status === 'new').length,
     contacted: leads.filter(l => l.status === 'contacted').length,
     qualified: leads.filter(l => l.status === 'qualified').length,
+    closed: leads.filter(l => l.status === 'closed').length,
   };
 
   return (
@@ -132,7 +133,7 @@ export default function Dashboard() {
               </div>
               <div>
                 <h1 className="font-display font-bold text-xl text-foreground">Painel Admin</h1>
-                <p className="text-xs text-muted-foreground">EMT Tech</p>
+                <p className="text-xs text-muted-foreground">Agência EMT</p>
               </div>
             </div>
 
@@ -172,7 +173,7 @@ export default function Dashboard() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
           <div className="glass-card rounded-xl p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -180,6 +181,11 @@ export default function Dashboard() {
                 <p className="text-3xl font-bold text-foreground">{stats.total}</p>
               </div>
               <Users className="w-10 h-10 text-primary" />
+            </div>
+          </div>
+
+          <div className="glass-card rounded-xl p-6">
+            <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Contatados</p>
                 <p className="text-3xl font-bold text-yellow-400">{stats.contacted}</p>
@@ -197,7 +203,29 @@ export default function Dashboard() {
               <Target className="w-10 h-10 text-green-400" />
             </div>
           </div>
+
+          <div className="glass-card rounded-xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Novo</p>
+                <p className="text-3xl font-bold text-blue-400">{stats.new}</p>
+              </div>
+              <Sparkles className="w-10 h-10 text-blue-400" />
+            </div>
+          </div>
+
+          <div className="glass-card rounded-xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground mb-1">Fechado</p>
+                <p className="text-3xl font-bold text-gray-400">{stats.closed}</p>
+              </div>
+              <CheckCircle className="w-10 h-10 text-gray-400" />
+            </div>
+          </div>
         </div>
+
+        
 
         <div className="glass-card rounded-2xl p-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
